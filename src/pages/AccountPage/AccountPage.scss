@@ -1,0 +1,453 @@
+@import '_setting.scss';
+
+.account-page-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .account-page-item {
+        height: 100vh;
+        position: relative;
+
+        .account-page-header {
+            
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 96px;
+            padding-top: 20px;
+
+            .logo-nomusic {
+                color: $main-color;
+                font-family: HIGHER;
+                font-size: 4rem;
+                margin-top: -4px;
+                margin-left: 40px;
+            }
+
+            .account-page-right-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-right: 40px;
+                font-family: UTM_AVO_BOLD;
+
+                span {
+                    width: 140px;
+                    padding: 6px 0px;
+                    text-align: center;
+                    border-radius: 18px;
+                    cursor: pointer;
+
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+
+                    &:first-child { color: $white; }
+                    &:nth-child(2) {
+                        color: $black-gray;
+                        background-color: $main-color;
+                    }
+                    &:last-child {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+
+        .account-page-content {
+
+            display: flex;
+
+            .account-page-content-left {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                width: 768px;
+                height: calc(100vh - 96px);
+                padding-left: 122.8px;
+
+                .account-page-slogan-img {
+                    margin-top: 80px;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        z-index: -1;
+                        width: 400px;
+                        height: 400px;
+                        background-color: darken($main-color, $amount: 30);
+                    }
+
+                    img {
+                        width: 400px;
+
+                    }
+
+                    svg {
+                        padding: 10px;
+                        width: 140px;
+                        height: 140px;
+                        position: absolute;
+                        top: -65px;
+                        right: -65px;
+                        font-family: UTM_AVO;
+
+                        text {
+                            fill: $white;
+                            font-size: 1.15rem;
+                        }
+
+                        animation: around 9s linear infinite;
+                    }
+
+                    .astronaut-title {
+                        font-family: HIGHER;
+                        color: $main-color;
+                        font-size: 4rem;
+                        margin-top: 20px;
+                        width: 400px;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    
+                    .slogan {
+                        right: 285px;
+                        bottom: 220px;
+                        position: absolute;
+                        transform: rotate(-90deg);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: calc(360px + 64px);
+
+                        span {
+                            width: 239px;
+                            text-align: center;
+
+                            &:first-child {
+                                color: $main-color;
+                                font-size: 4rem;
+                                margin-left: 6px;
+                                font-family: HIGHER;
+                                margin-bottom: 10px;
+                                animation: appearText 2s ease-in-out forwards;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                opacity: 0;
+                            }
+
+                            &:not(:first-child) {
+                                font-family: UTM_AVO;
+                                font-size: 1.1rem;
+                                color: $white;
+                                animation: appearText 2s ease-in-out 3s forwards;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                opacity: 0;
+                            }
+
+                            &:nth-child(2) {
+                                animation: appearText 2s ease-in-out 1.5s forwards;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                opacity: 0;
+                            }
+                        }
+                    }
+                }
+
+               
+            }
+
+            .account-page-content-right {
+                width: calc(100% - 768px);
+                height: calc(100vh - 96px);
+                padding-top: 40px;
+                overflow: hidden;
+                position: relative;
+                z-index: 1;
+                background-image: url('../../resources/assets/background.png');
+                background-size: 1000px 100%;
+                animation: slideLTR 45s linear infinite;
+
+                &::after {
+                    content: '';
+                    height: 60rem;
+                    width: 50rem;
+                    background-color: $black-gray;
+                    border-right: 4px solid $main-color;
+                    display: block;
+                    position: absolute;
+                    z-index: 0;
+                    left: -43.6rem;
+                    top: -10rem;
+                    transform: rotate(24deg);
+                    box-shadow: 60px 0 100px darken($black-gray, $amount: 10);
+                }
+
+                &::before {
+                    width: 100%;
+                    height: 80px;
+                    background-color: $black-gray;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: -22px;
+                    left: 100px;
+                    z-index: 1;
+                }
+            }
+        }
+
+        .account-scroll-btn {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 50px;
+            bottom: 40px;
+            padding-top: 5px;
+            border-radius: 50%;
+            background-color: $main-color;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 4px 4px 8px darken($black-gray, $amount: 20);
+
+            svg {
+                font-size: 3rem;
+            }
+        }
+
+        .account-page-bottom-content {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+
+            .account-page-bottom-left-content {
+                width: 50%;
+                position: relative;
+                overflow: hidden;
+
+                .bottom-left-img-n-text {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 500px;
+                    height: 500px;
+                    bottom: -150px;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .bottom-left-nomusic {
+                        position: absolute;
+                        color: $main-color;
+                        top: 95px;
+                        right: -158px;
+                        padding-bottom: 20px;
+                        padding-left: 10px;
+                        background-color: $black-gray;
+                        transform: rotate(90deg);
+                        font-size: 17rem;
+                        font-family: HIGHER;
+                    }
+
+                    .bottom-left-astonaut {
+                        position: absolute;
+                        top: 172px;
+                        right: -119px;
+                        transform: rotate(90deg);
+                        font-family: UTM_AVO_ITALIC;
+                        color: $white;
+                        font-size: 6rem;
+                    }
+                }
+
+                .register-container-left {
+                    position: fixed;
+                    z-index: 5;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    bottom: 0;
+                    background-color: rgba($black-gray, $alpha: 0.5);
+                    display: flex;
+                    flex-direction: column;
+                    padding-top: 160px;
+                    opacity: 0;
+                    animation: appearOpacity 0.5s ease-in-out forwards;
+
+                    .account-scroll-btn-2 {
+                        top: 50px;
+                        padding-bottom: 5px;
+                        padding-top: 0;
+                    }
+
+                    span {
+
+                        width: 500px;
+                        margin: 0 auto;
+
+                        &:first-child {
+                            color: $main-color;
+                            font-family: HIGHER;
+                            font-size: 9rem;
+                        }
+
+                        &:last-child {
+                            color: $white;
+                            font-family: UTM_AVO;
+                            font-size: 1.8rem;
+                        }
+                    }
+                }
+            }
+
+            .account-page-bottom-right-content {
+                width: 50%;
+                overflow: hidden;
+                border-left: 4px solid $main-color;
+
+                .background-img-item {
+                    width: 1500px;
+                }
+
+                .register-container-right {
+                    position: fixed;
+                    z-index: 5;
+                    top: 0;
+                    left: 50%;
+                    right: 0;
+                    bottom: 0;
+                    background-color: rgba($black-gray, $alpha: 0.5);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+.login-container {
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+    background-color: rgba($black-gray, $alpha: 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: appearOpacity 0.5s ease-in-out;
+
+    .fake-container {
+        position: fixed;
+        inset: 0;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    opacity: 0;
+}
+
+@keyframes around {
+    from { transform: rotate(0deg)};
+    to { transform: rotate(360deg);}
+}
+
+@keyframes slideLTR {
+    to {
+        background-position: 2000px;
+    }
+}
+
+@keyframes appearText {
+    from { opacity: 0; width: 0px; }
+    to { opacity: 1; width: 239px; }
+}
+
+@media screen and (max-width: 1024px) {
+    .account-page-container {
+        .account-page-item {
+            .account-page-content {
+                .account-page-content-left {
+                    width: 100%;
+                }
+                .account-page-content-right {
+                    display: none;
+                }
+            }
+
+            .account-page-bottom-content {
+                .account-page-bottom-left-content {
+                    display: none;
+                }
+
+                .account-page-bottom-right-content {
+                    width: 100%;
+
+                    .register-container-right {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .account-page-container {
+        .account-page-item {
+            .account-page-content {
+                .account-page-content-left {
+                    .account-page-slogan-img {
+                        margin-top: 60px;
+                        position: relative;
+    
+                        &::after {
+                            width: 350px;
+                            height: 350px;
+                        }
+    
+                        img {
+                            width: 350px;
+                        }
+    
+                        .astronaut-title {
+                            width: 350px;
+                        }
+                        
+                        .slogan {
+                            right: 245px;
+                            bottom: 197px;
+                            width: calc(350px + 64px);
+    
+                            span {
+                                &:first-child {
+                                    color: $main-color;
+                                    font-size: 4rem;
+                                    font-family: HIGHER;
+                                    margin-bottom: 10px;
+                                }
+    
+                                &:not(:first-child) {
+                                    font-family: UTM_AVO;
+                                    font-size: 1.1rem;
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

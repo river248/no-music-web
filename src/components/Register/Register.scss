@@ -1,0 +1,155 @@
+@import '_setting.scss';
+
+.register-box {
+
+    position: relative;
+    width: 370px;
+    height: 530px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $white;
+    animation: appearSlide 0.5s ease-in-out;
+    background-color: rgba($white, $alpha: 0.15);
+    backdrop-filter: blur(7px);
+
+    .form-register {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 45px;
+
+        input {
+            width: 100%;
+            height: 40px;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid $white;
+            background-color: transparent;
+            position: relative;
+            font-family: UTM_AVO;
+            padding-left: 10px;
+            font-size: 1rem;
+            padding-top: 15px;
+            padding-bottom: 2px;
+            color: rgba($white, $alpha: 0.8);
+
+            &[type=number] {
+                margin-bottom: 30px;
+            }
+
+            &::placeholder {
+                position: absolute;
+                bottom: 2px;
+                font-size: 1rem;
+                color: rgba($white, $alpha: 0.8);
+            }
+        }
+
+        button {
+            outline: none;
+            border: none;
+            padding: 6px 0 8px 0;
+            border-radius: 18px;
+            font-family: UTM_AVO_BOLD;
+            background-color: $main-color;
+            color: $white;
+            width: 100%;
+            cursor: pointer;
+            justify-content: center;
+        }
+    }
+
+    .google-login-btn, .facebook-login-btn {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        border-radius: 18px;
+        background-color: $white;
+        width: calc(100% - 90px);
+        margin-bottom: 10px;
+        height: 33.2px;
+        display: flex;
+        align-items: center;
+
+        svg {
+            font-size: 26px;
+        }
+
+        span {
+            width: calc(100% - 26px);
+            font-size: 0.8rem !important;
+            font-family: UTM_AVO_BOLD !important;
+            color: $black-gray;
+            padding-bottom: 1px;
+        }
+    }
+    
+    .facebook-login-btn {
+
+        background-color: #0778E8;
+
+        svg {
+            background-color: #0778E8;
+            color: $white;
+            border-radius: 50%;
+        }
+
+        span {
+            color: $white;
+        }
+    }
+    span {
+        &:first-child, &:nth-child(4) {
+            font-family: HIGHER;
+            color: $main-color;
+        }
+
+        &:first-child {
+            margin: 10px 0;
+            font-size: 4rem;
+        }
+
+        &:nth-child(2) {
+            font-size: 1.1rem;
+            font-family: UTM_AVO;
+        }
+
+        &:nth-child(4) {
+            font-size: 2rem;
+            margin: 10px 0 15px 0;
+        }
+    }
+
+    .text-bottom-register {
+        font-family: UTM_AVO;
+        font-size: 0.8rem;
+        cursor: pointer;
+
+        &:hover {
+            font-weight: bold;
+        }
+
+        &:not(:last-child) {
+            margin-top: 5px;
+        }
+    }
+
+    .other-login-btn {
+        background-color: rgba($white, $alpha: 0.5);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 0 25px 25px;
+        cursor: pointer;
+        font-family: UTM_AVO_BOLD;
+        font-size: 0.8rem;
+        padding-bottom: 4px;
+    }
+}

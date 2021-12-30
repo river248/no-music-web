@@ -1,0 +1,59 @@
+
+//Color
+// $red-pastel: #FF0049;
+$main-color: #51d8c6;
+$black-gray: #191919;
+$white: #fff;
+
+//Font
+@font-face {
+    font-family: 'UTM_AVO';
+    src: local('MyFont'), url('./resources/fonts/UTM\ AVO.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'UTM_AVO_BOLD';
+    src: local('UTM_AVO_BOLD'), url('./resources/fonts/UTM\ AVOBOLD.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'UTM_AVO_BOLD_ITALIC';
+    src: local('UTM_AVO_BOLD_ITALIC'), url('./resources/fonts/UTM\ AVOBOLD_ITALIC.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'UTM_AVO_ITALIC';
+    src: local('UTM_AVO_ITALIC'), url('./resources/fonts/UTM\ AVOITALIC.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'HIGHER';
+    src: local('HIGHER'), url('./resources/fonts/HIGHER.OTF') format('truetype');
+}
+
+//animation
+
+@keyframes appearOpacity {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+
+@keyframes disappearOpacity {
+    from { opacity: 1;}
+    to { opacity: 0;}
+}
+
+@keyframes appearSlide {
+    from { transform: translateX(-20%);}
+    to { transform: translate(0%);}
+}
+
+@keyframes disappearSlide {
+    from { transform: translateX(0%);}
+    to { transform: translate(20%);}
+}
+
+@keyframes disappearSlideOpacity {
+    from { opacity: 1; transform: translateX(0%);}
+    to { opacity: 0; transform: translate(20%);}
+}

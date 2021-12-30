@@ -80,6 +80,8 @@ function AccountPage() {
 
     const handleWheelDown = (e) => {
 
+        e.preventDefault()
+
         if (window.scrollY === 0) {
 
             setTimeout(() => {
@@ -123,8 +125,7 @@ function AccountPage() {
     }
 
     return (
-        <>
-        <div id='account-page' className='account-page-container' onWheel={handleWheelDown}>
+        <div id='account-page' className='account-page-container'>
             <div className='account-page-item'>
                 <div className='account-page-header'>
                     <span className='logo-nomusic'>NO MUSIC</span>
@@ -200,7 +201,6 @@ function AccountPage() {
                 { location.pathname === '/sign-up' && <Register disable={disable} setType={setType} type={type}/> }
             </div> }
         </div>
-        </>
     )
 }
 

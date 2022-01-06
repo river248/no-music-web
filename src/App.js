@@ -6,6 +6,7 @@ import {
 
 import AccountPage from 'pages/AccountPage/AccountPage'
 import './App.scss'
+import HomePage from 'pages/HomePage/HomePage'
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
           <Route path='/' element={<AccountPage/>}/>
           <Route path='/login' element={<AccountPage/>}/>
           <Route path='/sign-up' element={<AccountPage/>}/>
+          <Route path='/home' element={<HomePage/>}/>
+          <Route path='/search' element={<HomePage/>}/>
+          <Route path='/discovery' element={<HomePage/>}/>
+          <Route path='/chart' element={<HomePage/>}/>
         </Routes>
 
     </Router>

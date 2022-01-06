@@ -315,9 +315,19 @@
                 width: 50%;
                 overflow: hidden;
                 border-left: 4px solid $main-color;
+                background-image: url('../../resources/assets/background.png');
+                background-size: 1000px 100%;
+                animation: slideLTR 45s linear infinite;
+                position: relative;
 
-                .background-img-item {
-                    width: 1500px;
+                &::after {
+                    content: '';
+                    width: 50px;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: -50px;
+                    box-shadow: 60px 0 100px darken($black-gray, $amount: 10);
                 }
 
                 .register-container-right {

@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import './AccountPage.scss'
 import astronaut from 'resources/assets/astronaut.jpg'
-import background from 'resources/assets/background.png'
 import Login from 'components/Login/Login'
 import Register from 'components/Register/Register'
 
@@ -70,59 +69,61 @@ function AccountPage() {
         }, 700)
     }
 
-
     useEffect(() => {
         
-        window.addEventListener('wheel', e => handleWheelDown(e), {passive: false})
-        return () => window.removeEventListener('wheel', e => handleWheelDown(e), {passive: false})
+        const handleWheelDown = (e) => {
 
-    }, [])
-
-    const handleWheelDown = (e) => {
-
-        e.preventDefault()
-
-        if (window.scrollY === 0) {
-
-            setTimeout(() => {
-                navigate('/sign-up')
-                setType(2)
-                setDisable(false)
+            e.preventDefault()
+    
+            if (window.scrollY === 0) {
+    
+                setTimeout(() => {
+                    navigate('/sign-up')
+                    setType(2)
+                    setDisable(false)
+            
+                    const scroll = Scroll.animateScroll
+                    scroll.scrollToBottom({
+                        duration: 1900,
+                        delay: 0,
+                        smooth: true
+                    })
+                }, 200)
+    
+                
+                setTimeout(() => {
+                    setIsVisible(true)
+                }, 1900)
+    
+            } else {
+    
+                accountLeftRef2.current?.style.setProperty('animation', 'disappearOpacity 0.5s ease-in-out forwards')
+                accountRightRef2.current?.style.setProperty('animation', 'disappearOpacity 0.5s ease-in-out forwards')
+        
+                setDisable(true)
+        
+                setTimeout(() => {
+                    navigate('/', { replace: true })
+                    setType(0)
+                    setIsVisible(false)
+                }, 2000)
         
                 const scroll = Scroll.animateScroll
-                scroll.scrollToBottom({
-                    duration: 1900,
-                    delay: 0,
-                    smooth: true
+                scroll.scrollToTop({
+                    duration: 1500,
+                    delay: 500
                 })
-            }, 200)
-
-            
-            setTimeout(() => {
-                setIsVisible(true)
-            }, 1900)
-
-        } else {
-
-            accountLeftRef2.current?.style.setProperty('animation', 'disappearOpacity 0.5s ease-in-out forwards')
-            accountRightRef2.current?.style.setProperty('animation', 'disappearOpacity 0.5s ease-in-out forwards')
     
-            setDisable(true)
-    
-            setTimeout(() => {
-                navigate('/', { replace: true })
-                setType(0)
-                setIsVisible(false)
-            }, 2000)
-    
-            const scroll = Scroll.animateScroll
-            scroll.scrollToTop({
-                duration: 1500,
-                delay: 500
-            })
-
+            }
         }
-    }
+
+        window.addEventListener('wheel', e => handleWheelDown(e), {passive: false})
+        return () => {
+            window.location.reload()
+            window.removeEventListener('wheel', e => handleWheelDown(e), {passive: false})
+        }
+
+    }, [])
 
     return (
         <div id='account-page' className='account-page-container'>
@@ -186,7 +187,6 @@ function AccountPage() {
                         </div> }
                     </div>
                     <div className='account-page-bottom-right-content'>
-                        <img className='background-img-item' src={background} alt='backgound'/>
                         { isVisible && <div className='register-container-right' ref={accountRightRef2}>
                             { location.pathname === '/sign-up' && <Register disable={disable} setType={setType} type={type}/> }
                             { location.pathname === '/login' && <Login disable={disable} setType={setType} type={type}/> }

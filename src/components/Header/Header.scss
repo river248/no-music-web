@@ -1,0 +1,120 @@
+@import '_setting.scss';
+
+.header-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    justify-content: space-between;
+    padding: 0 30px 0 78px;
+    align-items: center;
+    background-color: $black-gray;
+
+
+    .header-left-container {
+        display: flex;
+        align-items: center;
+
+        .header-logo {
+            font-family: HIGHER;
+            color: $main-color;
+            font-size: 4rem;
+            margin-bottom: 15px
+        }
+
+        .current-page {
+            background-color: $white;
+            font-family: UTM_AVO_BOLD;
+            font-size: 0.9rem;
+            height: 47.6px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            padding-bottom: 2px;
+            border-radius: 23.8px;
+            margin-left: 29px;
+            width: 118px;
+            justify-content: center;
+        }
+    }
+
+    .header-right-container {
+        width: 250px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-icons {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+
+            svg {
+                font-size: 30px;
+                color: $main-color;
+            }
+
+            &:first-child {
+                svg {
+                    font-size: 26px;
+
+                    path {
+                        stroke: $main-color;
+                    }
+                }
+
+                span {
+                    position: absolute;
+                    bottom: 4px;
+                    right: 4px;
+                    background-color: $white;
+                    font-family: UTM_AVO_BOLD;
+                    font-size: 0.7rem;
+                    width: 15px;
+                    height: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    padding-bottom: 2px;
+                }
+            }
+        }
+
+
+        .header-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: $white;
+        }
+    }
+
+    form {
+        width: calc(100% - (250px + 250px));
+
+        input {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            padding: 0 20px 2px 20px;
+            color: $white;
+            font-family: UTM_AVO_ITALIC;
+            background-color: $main-color-2;
+            color: $white;
+
+            &::placeholder {
+                color: $white;
+            }
+        }
+    }
+}

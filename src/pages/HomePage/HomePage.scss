@@ -1,0 +1,383 @@
+@import '_setting.scss';
+
+.hot-song-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 234.8px;
+    position: relative;
+
+    .hot-song-container-item {
+        width: 32%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 214.8px;
+        position: absolute;
+
+        .hot-song-image {
+            width: 100%;
+            height: 160px;
+            background-color: $main-color-2;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                opacity: 1;
+                transition: 0.3s ease;
+                backface-visibility: hidden;
+                margin: auto;
+            }
+
+            .middle-hot-song {
+                transition: 0.3s ease;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+
+                svg {
+                    position: absolute;
+                    bottom: -60px;
+                    right: -170px;
+                    font-size: 50px;
+                    color: $main-color;
+                }
+            }
+
+
+            &:hover {
+                background-color: $black-gray;
+                transition: 0.3s ease;
+                img {
+                    opacity: 0.5;
+                    width: 105%;
+                }
+                
+                .middle-hot-song {
+                    opacity: 1;
+                }
+            }
+
+
+
+        }
+
+        .hot-song-name {
+            font-family: UTM_AVO_BOLD_ITALIC;
+            color: $main-color;
+            padding: 0 20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        
+        .hot-song-singer {
+            font-family: UTM_AVO_ITALIC;
+            color: $white;
+            padding: 0 20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+
+        }
+
+    }
+
+    .hot-song-container-item-1 {
+        left: 10px;
+        animation: anim1 0.8s ease-in-out forwards;
+        opacity: 1;
+        z-index: 0;
+    }
+
+    .hot-song-container-item-2 {
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        animation: anim2 0.6s ease-in-out forwards;
+        z-index: 1;
+    }
+
+    .hot-song-container-item-3 {
+        left: 100%;
+        transform: translateX(calc(-100% - 10px));
+        -ms-transform: translateX(calc(-100% - 10px));
+        animation: anim3 0.6s ease-in-out forwards;
+        z-index: 1;
+    }
+
+    .hot-song-container-item-4 {
+        opacity: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        animation: anim4 0.6s ease-in-out forwards;
+        z-index: 0;
+    }
+}
+
+hr {
+    width: calc(100% - 20px);
+    border: none;
+    height: 2px;
+    background-color: $main-color;
+    margin: 20px auto;
+}
+
+.home-page-title {
+    margin: 5px 10px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        &:first-child {
+            color: $main-color;
+            font-family: UTM_AVO_BOLD_ITALIC;
+        }
+        &:last-child {
+            color: $white;
+            font-family: UTM_AVO_ITALIC;
+            cursor: pointer;
+        }
+    }
+}
+
+.recently-song-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    .recently-song-container-item {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: center;
+
+        .recently-song-image {
+            width: 220px;
+            height: 220px;
+            background-color: $main-color-2;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                transition: 0.3s ease;
+                backface-visibility: hidden;
+                margin: auto;
+            }
+
+            .middle-recently-song {
+                transition: 0.3s ease;
+                opacity: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+
+                svg {
+                    position: absolute;
+                    bottom: -90px;
+                    right: -90px;
+                    font-size: 50px;
+                    color: $main-color;
+                }
+            }
+
+
+            &:hover {
+                background-color: $black-gray;
+                transition: 0.3s ease;
+
+                img {
+                    opacity: 0.5;
+                    width: 105%;
+                    height: 105%;
+                }
+                
+                .middle-recently-song {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .recently-song-name {
+            font-family: UTM_AVO_BOLD_ITALIC;
+            color: $main-color;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 220px;
+            text-align: center;
+        }
+        
+        .recently-song-singer {
+            font-family: UTM_AVO_ITALIC;
+            color: $white;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 220px;
+            text-align: center;
+
+        }
+
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .hot-song-container {
+        height: 202.8px;
+        .hot-song-container-item {
+            height: 182.8px;
+            .hot-song-image {
+                height: 128px;
+
+                .middle-hot-song {
+
+                    svg {
+                        bottom: -48px;
+                        right: -128px;
+                        font-size: 38px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media (min-width: 1170px) and (max-width: 1280px) {
+    .recently-song-container {
+        .recently-song-container-item {
+            .recently-song-image {
+                width: 180px;
+                height: 180px;
+
+                .middle-recently-song {
+                    svg {
+                        font-size: 40px;
+                        bottom: -75px;
+                        right: -75px;
+                    }
+                }
+            }
+            .recently-song-name, .recently-song-singer {
+                width: 180px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .hot-song-container {
+        height: 186.8px;
+        .hot-song-container-item {
+            height: 166.8px;
+            .hot-song-image {
+                height: 112px;
+
+                .middle-hot-song {
+
+                    svg {
+                        bottom: -42px;
+                        right: -118px;
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .recently-song-container {
+        .recently-song-container-item {
+            .recently-song-image {
+                width: 180px;
+                height: 180px;
+
+                .middle-recently-song {
+                    svg {
+                        font-size: 40px;
+                        bottom: -75px;
+                        right: -75px;
+                    }
+                }
+            }
+            .recently-song-name, .recently-song-singer {
+                width: 180px;
+            }
+        }
+    }
+}
+
+@keyframes anim1 {
+    0% { left: 10px; opacity: 1;}
+    20% { transform: scale(0.8); }
+    40% { opacity: 0; }
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+
+@keyframes anim2 {
+    from {
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+    to {
+        left: 10px;
+        transform: translateX(0);
+        -ms-transform: translateX(0);
+    }
+}
+
+@keyframes anim3 {
+    from {
+        left: 100%;
+        transform: translateX(calc(-100% - 10px));
+        -ms-transform: translateX(calc(-100% - 10px));
+    }
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+}
+
+@keyframes anim4 {
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        -ms-transform: translateX(-50%);
+    }
+    15% { transform: scale(0.8); }
+    30% {opacity: 0;}
+    100% {
+        left: 100%;
+        transform: translateX(calc(-100% - 10px));
+        -ms-transform: translateX(calc(-100% - 10px));
+        opacity: 1;
+    }
+}

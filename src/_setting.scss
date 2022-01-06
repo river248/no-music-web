@@ -3,6 +3,7 @@
 // $red-pastel: #FF0049;
 $main-color: #51d8c6;
 $black-gray: #191919;
+$main-color-2: #505050;
 $white: #fff;
 
 //Font
@@ -56,4 +57,14 @@ $white: #fff;
 @keyframes disappearSlideOpacity {
     from { opacity: 1; transform: translateX(0%);}
     to { opacity: 0; transform: translate(20%);}
+}
+
+@keyframes slideRight2Left {
+    from { transform: translateX(0%);}
+    to { transform: translateX(calc(-100% - 3px));}
+}
+
+@keyframes slideLeft2Right {
+    from { transform: translateX(calc(-100% - 3px));}
+    to { transform: translateX(0%); }
 }

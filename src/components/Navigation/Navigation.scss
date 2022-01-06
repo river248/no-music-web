@@ -1,0 +1,115 @@
+@import '_setting.scss';
+
+.navigation-container {
+    position: fixed;
+    top: 120px;
+    bottom: 0;
+    width: 250px;
+    border-top-right-radius: 40px;
+    background-color: $main-color-2;
+    z-index: 5;
+    animation: slideLeft2Right 0.5s ease-in-out;
+
+    ul {
+        margin-top: 20px;
+        padding: 0;
+
+        li {
+
+            a {
+                display: flex;
+                height: 44px;
+                text-decoration: none;
+                font-family: UTM_AVO_ITALIC;
+                color: $white;
+                align-items: center;
+                padding: 0 0 3px 20px;
+
+                svg {
+                    margin-right: 8px;
+                    font-size: 20px;
+                }
+
+                &:hover {
+                    color: $main-color;
+                }
+                
+            }
+
+            &:nth-child(1).active ~ .current-link {
+                top: calc(20px + (44px - 11px)/2);
+            }
+
+            &:nth-child(2).active ~ .current-link {
+                top: calc(20px + (44px*3 - 11px)/2);
+            }
+
+            &:nth-child(3).active ~ .current-link {
+                top: calc(20px + (44px*5 - 11px)/2);
+            }
+
+            &:nth-child(4).active ~ .current-link {
+                top: calc(20px + (44px*7 - 11px)/2);
+            }
+
+            &.active a {
+                font-family: UTM_AVO_BOLD_ITALIC;
+
+                &:hover { color: $white; }
+            }
+
+        }
+
+        hr {
+            margin-top: 20px;
+            margin-left: 0;
+            width: 200px;
+            border: none;
+            height: 1.5px;
+            background-color: $white;
+        }
+
+        .current-link {
+            width: 36px;
+            height: 12px;
+            background-color: $main-color;
+            border-radius: 6px;
+            position: absolute;
+            right: -5px;
+            box-shadow: 2px 2px 6px $black-gray;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+}
+
+.nav-icon {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    z-index: 11;
+    top: 30px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+        color: $main-color;
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .navigation-container {
+        width: 68px;
+        ul li a {
+            span { display: none;}
+            svg { margin: 0; font-size: 25px;}
+        }
+
+        ul hr { width: 68px;}
+
+        ul .current-link { display: none;}
+    }
+}

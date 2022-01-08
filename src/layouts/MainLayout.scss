@@ -2,7 +2,7 @@
 
 .main-container-l {
     margin: 110px 100px 0 100px;
-    padding: 10px 40px;
+    padding: 10px 40px 90px 40px;
     transition: all 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 @media screen and (max-width: 1170px) {
     .main-container-l {
         margin: 110px 0 0 0;
-        padding: 10px 20px;
+        padding: 10px 20px 90px 20px;
     }
 
     .main-container-s {

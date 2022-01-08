@@ -68,3 +68,18 @@ $white: #fff;
     from { transform: translateX(calc(-100% - 3px));}
     to { transform: translateX(0%); }
 }
+
+@keyframes slideDown {
+    from { transform: translateY(0%);}
+    to { transform: translateY(100%);}
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%);}
+    to { transform: translateY(0%);}
+}
+
+@keyframes rotate360deg {
+    from { transform: rotate(0deg);}
+    to { transform: rotate(360deg);}
+}

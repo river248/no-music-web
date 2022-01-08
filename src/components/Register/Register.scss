@@ -13,6 +13,7 @@
     animation: appearSlide 0.5s ease-in-out;
     background-color: rgba($white, $alpha: 0.15);
     backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
 
     .form-register {
         display: flex;

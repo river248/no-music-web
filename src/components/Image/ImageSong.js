@@ -31,4 +31,4 @@ function ImageSong({ source, alert }) {
     )
 }
 
-export default ImageSong
+export default React.memo(ImageSong)

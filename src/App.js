@@ -7,8 +7,10 @@ import {
 import AccountPage from 'pages/AccountPage/AccountPage'
 import './App.scss'
 import HomePage from 'pages/HomePage/HomePage'
+import AudioCustom from 'components/AudioCustom/AudioCustom'
+import { connect } from 'react-redux'
 
-function App() {
+function App({ screenType }) {
   return (
     <Router>
 
@@ -22,8 +24,15 @@ function App() {
           <Route path='/chart' element={<HomePage/>}/>
         </Routes>
 
+      { screenType && <AudioCustom/> }
     </Router>
   )
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    screenType: state.audioReducer.screenType
+  }
+}
+
+export default connect(mapStateToProps, null)(App)

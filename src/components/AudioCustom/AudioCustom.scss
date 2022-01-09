@@ -118,10 +118,12 @@
             }
         }
 
-        #volume-bar {
-            right: 25px;
-            bottom: -20px;
+        .volume-container {
+            right: 34px;
+            bottom: -38px;
             align-self: flex-end;
+            justify-content: space-between;
+            width: 135px;
         }
     }
 }
@@ -173,7 +175,7 @@
         position: relative;
         color: $white;
         margin-left: 10px;
-        width: 180px;
+        width: 160px;
 
         span {
             text-overflow: ellipsis;
@@ -201,13 +203,13 @@
 
     .audio-controllers {
         flex-direction: column-reverse;
-        width: calc(100% - 60px - 180px - 50px - 120px);
+        width: calc(100% - 60px - 180px - 50px - 134px);
         z-index: 1;
 
         #progress-bar { width: 70%; }
 
         #time-audio-playing {
-            width: calc((100% - 60px - 180px - 50px - 120px)*0.76);
+            width: calc((100% - 60px - 180px - 50px - 134px)*0.76);
             bottom: 7px;
         }
 
@@ -228,10 +230,12 @@
             }
         }
 
-        #volume-bar {
+        .volume-container {
             top: 50%;
             right: 30px;
             transform: translateY(-50%);
+            
+            button { svg { color: $white; }}
         }
     }
 }
@@ -333,54 +337,80 @@
             color: $white;
         }
 
-        #volume-bar {
-            width: 100px;
-            height: 4px;
-            border-radius: 2px;
+        .volume-container {
             position: absolute;
-            background-image: linear-gradient(90deg, $main-color 80%, $white 0%);
+            display: flex;
+            align-items: center;
 
-            &::-webkit-slider-runnable-track {
+            button {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                outline: none;
+                border: none;
+                position: relative;
+                background-color: transparent;
+                cursor: pointer;
+
+                svg {
+                    position: absolute;
+                    font-size: 28px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            #volume-bar {
+                width: 100px;
                 height: 4px;
                 border-radius: 2px;
-            }
+                background-image: linear-gradient(90deg, $main-color 80%, $white 0%);
 
-            &::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                appearance: none;
-                position: relative;
-                height: 4px;
-                width: 4px;
-                border-radius: 50%;
-                background: transparent;
-                top: 0px;
-                transition: all 0.2s ease-in-out;
-            }
-
-            &::-moz-range-thumb {
-                position: relative;
-                height: 4px;
-                width: 4px;
-                top: 0px;
-                border-radius: 50%;
-                background: transparent;
-                transition: all 0.2s ease-in-out;
-            }
-
-            &:hover {
-                &::-webkit-slider-thumb {
-                    width: 10px;
-                    height: 10px;
-                    top: -3px;
-                    transition: all 0.2s ease-in-out;
-                    background: $main-color;
+                &::-webkit-slider-runnable-track {
+                    height: 4px;
+                    border-radius: 2px;
                 }
-                &::-moz-range-thumb {
-                    width: 12px;
-                    height: 12px;
-                    top: -3px;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    position: relative;
+                    height: 4px;
+                    width: 4px;
+                    border-radius: 50%;
+                    background: transparent;
+                    top: 0px;
                     transition: all 0.2s ease-in-out;
-                    background: $main-color;
+                }
+
+                &::-moz-range-thumb {
+                    position: relative;
+                    height: 4px;
+                    width: 4px;
+                    top: 0px;
+                    border-radius: 50%;
+                    background: transparent;
+                    transition: all 0.2s ease-in-out;
+                }
+
+                &:hover {
+                    &::-webkit-slider-thumb {
+                        width: 10px;
+                        height: 10px;
+                        top: -3px;
+                        transition: all 0.2s ease-in-out;
+                        background: $main-color;
+                    }
+                    &::-moz-range-thumb {
+                        width: 12px;
+                        height: 12px;
+                        top: -3px;
+                        transition: all 0.2s ease-in-out;
+                        background: $main-color;
+                    }
                 }
             }
         }

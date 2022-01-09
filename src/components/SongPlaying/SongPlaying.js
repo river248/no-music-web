@@ -3,9 +3,11 @@ import ImageSong from 'components/Image/ImageSong'
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from 'react-icons/cg'
 import { FaPause, FaPlay } from 'react-icons/fa'
 import { BiListUl } from 'react-icons/bi'
-import { MdOutlineReplay } from 'react-icons/md'
+import { RiRepeat2Fill, RiRepeatOneFill } from 'react-icons/ri'
+import { MdVolumeUp, MdVolumeOff, MdVolumeDown, MdVolumeMute } from 'react-icons/md'
+import { IoShuffle } from 'react-icons/io5'
 import { AiFillHeart } from 'react-icons/ai'
-import { changeVolume, togglePlay } from 'actions/audioAction'
+import { changeVolume, loopingSong, toggleMuted, togglePlay } from 'actions/audioAction'
 import { connect } from 'react-redux'
 import { Spinner } from 'react-bootstrap'
 import { calculateTime } from 'utils/formatTimer'
@@ -14,8 +16,8 @@ function SongPlaying(props) {
 
     const {
         progressRef, currentProcess, currentTime, duration,
-        isPlaying, screenType, currentSong, loading, volume,
-        togglePlay, setSeekable, changeVolume
+        isPlaying, screenType, currentSong, loading, volume, loopType, isMuted,
+        togglePlay, setSeekable, changeVolume, loopingSong, toggleMuted
     } = props
 
     const imageRef = useRef(null)
@@ -37,6 +39,29 @@ function SongPlaying(props) {
     const handleChangeVolume = (e) => {
         changeVolume(e.target.value/100)
         volumeRef.current.style.setProperty('background', `linear-gradient(90deg, #51d8c6 ${e.target.value}%, #fff 0%)`)
+    }
+
+    const handleLoopStatus = () => {
+        switch (loopType) {
+            case 'Loop':
+                loopingSong('Repeat')
+                break
+            case 'Repeat':
+                loopingSong('Shuffle')
+                break
+            case 'Shuffle':
+                loopingSong('Loop')
+                break
+            default:
+                break
+        }
+    }
+
+    const handleToggleMuted = () => {
+        if (isMuted)
+            toggleMuted(false)
+        else
+            toggleMuted(true)
     }
 
     return (
@@ -71,20 +96,35 @@ function SongPlaying(props) {
                         </button>}
                     { (!isPlaying && !loading) && <button onClick={() => togglePlay(true)}><FaPlay/></button> }
                 <button><CgChevronDoubleRight/></button>
-                <button><MdOutlineReplay/></button>
+                <button onClick={handleLoopStatus}>
+                    { (loopType === 'Loop') && <RiRepeat2Fill/>}
+                    { (loopType === 'Repeat') && <RiRepeatOneFill/>}
+                    { (loopType === 'Shuffle') && <IoShuffle/>}
+                </button>
             </div>
             <div id='time-audio-playing'>
                 <span>{calculateTime(currentTime)}</span>
                 <span>{calculateTime(duration)}</span>
             </div>
-            <input
-                type='range'
-                id='volume-bar'
-                defaultValue={volume*100}
-                max={100}
-                onChange={handleChangeVolume}
-                ref={volumeRef}
-            />
+            <div className='volume-container'>
+                <button onClick={handleToggleMuted}>
+                    { isMuted ? <MdVolumeOff/> :
+                        <>
+                        { (volume >= 0.5) && <MdVolumeUp/> }
+                        { (volume < 0.5 && volume > 0) && <MdVolumeDown/>}
+                        { (volume === 0) && <MdVolumeMute/>}
+                        </>
+                    }
+                </button>
+                <input
+                    type='range'
+                    id='volume-bar'
+                    defaultValue={volume*100}
+                    max={100}
+                    onChange={handleChangeVolume}
+                    ref={volumeRef}
+                />
+            </div>
         </div>
         </>
     )
@@ -96,7 +136,9 @@ const mapStateToProps = (state) => {
         screenType: state.audioReducer.screenType,
         currentSong: state.audioReducer.currentSong,
         loading: state.audioReducer.loading,
-        volume: state.audioReducer.volume
+        volume: state.audioReducer.volume,
+        loopType: state.audioReducer.loopType,
+        isMuted: state.audioReducer.isMuted
     }
 }
 
@@ -107,6 +149,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         changeVolume : (value) => {
             dispatch(changeVolume(value))
+        },
+        loopingSong : (type) => {
+            dispatch(loopingSong(type))
+        },
+        toggleMuted : (status) => {
+            dispatch(toggleMuted(status))
         }
     }
 }

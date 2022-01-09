@@ -11,7 +11,7 @@ import SongPlaying from 'components/SongPlaying/SongPlaying'
 function AudioCustom(props) {
 
     const {
-        screenType, currentSong, isPlaying, loading, volume,
+        screenType, currentSong, isPlaying, loading, volume, loopType, isMuted,
         playWithScreen, loadingSong, togglePlay
     } = props
 
@@ -81,6 +81,13 @@ function AudioCustom(props) {
             audioRef.current.volume = volume
     }, [volume])
 
+    useEffect(() => {
+        if (isMuted)
+            audioRef.current.muted = true
+        else
+            audioRef.current.muted = false
+    }, [isMuted])
+
     const handleTimeUpdate = () => {
 
         let progress = audioRef.current.currentTime
@@ -90,7 +97,20 @@ function AudioCustom(props) {
         setCurrentTime(audioRef.current.currentTime)
 
         if (percent === 100) {
-            togglePlay(false)
+
+            switch (loopType) {
+                case 'Loop':
+                    togglePlay(false)
+                    break
+                case 'Repeat':
+                    audioRef.current.play()
+                    break
+                case 'Shuffle':
+                    togglePlay(false)
+                    break
+                default:
+                    break
+            }
             setCurrentProcess(0)
             setCurrentTime(0)
             progressRef.current.style.setProperty('background', `linear-gradient(90deg, #51d8c6 0%, #fff 0%)`)
@@ -141,7 +161,9 @@ const mapStateToProps = (state) => {
         currentSong: state.audioReducer.currentSong,
         isPlaying: state.audioReducer.isPlaying,
         loading: state.audioReducer.loading,
-        volume: state.audioReducer.volume
+        volume: state.audioReducer.volume,
+        loopType: state.audioReducer.loopType,
+        isMuted : state.audioReducer.isMuted
     }
 }
 

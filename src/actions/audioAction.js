@@ -1,4 +1,12 @@
-import { TOGGLE_PLAY, PLAY_WITH_SCREEN, PLAY_THIS_SONG, LOADING_SONG, CHANGE_VOLUME } from 'utils/constants'
+import {
+    TOGGLE_PLAY,
+    PLAY_WITH_SCREEN,
+    PLAY_THIS_SONG,
+    LOADING_SONG,
+    CHANGE_VOLUME,
+    LOOPING,
+    TOGGLE_MUTED
+} from 'utils/constants'
 
 export const togglePlay = (status) => {
     return {
@@ -32,5 +40,19 @@ export const changeVolume = (value) => {
     return {
         type: CHANGE_VOLUME,
         payload: value
+    }
+}
+
+export const loopingSong = (type) => {
+    return {
+        type: LOOPING,
+        payload: type
+    }
+}
+
+export const toggleMuted = (status) => {
+    return {
+        type: TOGGLE_MUTED,
+        payload: status
     }
 }

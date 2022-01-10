@@ -18,7 +18,7 @@ function Register({ disable, setType, type }) {
     const handleSignIn = () => {
         registerRef.current.style.setProperty('animation', 'disappearSlideOpacity 0.5s ease-in-out forwards')
         setTimeout(() => {
-            navigate('/login')
+            navigate('login')
             if(type === 1)
                 setType(1)
             if(type === 2)
@@ -29,7 +29,7 @@ function Register({ disable, setType, type }) {
     const handleGoToHome = () => {
         registerRef.current.style.setProperty('animation', 'disappearSlideOpacity 0.5s ease-in-out forwards')
         setTimeout(() => {
-            navigate('/home')
+            navigate('/')
             setType(0)
         }, 700)
     }

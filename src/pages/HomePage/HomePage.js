@@ -1,6 +1,5 @@
 import React from 'react'
 import ImageSong from 'components/Image/ImageSong'
-import MainLayout from 'layouts/MainLayout'
 import { IoPause, IoPlay } from 'react-icons/io5'
 
 import './HomePage.scss'
@@ -38,7 +37,7 @@ function HomePage(props) {
     }
 
     return (
-        <MainLayout>
+        <>
             <div className='hot-song-container'>
                 { listHotSong.map((hotsong, index) => (
                     <SlideSong key={hotsong._id} hotsong={hotsong} index={index}/>
@@ -64,7 +63,7 @@ function HomePage(props) {
                     <span className='recently-song-singer'>{recentlySong.singer}</span>
                 </div>))}
             </div> 
-        </MainLayout>
+        </>
     )
 }
 

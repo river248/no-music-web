@@ -23,7 +23,7 @@ function AccountPage() {
 
     const handleScrollToBottom = () => {
 
-        navigate('/sign-up')
+        navigate('sign-up')
         setType(2)
         setDisable(false)
 
@@ -48,7 +48,7 @@ function AccountPage() {
         setDisable(true)
 
         setTimeout(() => {
-            navigate('/', { replace: true })
+            navigate('/account', { replace: true })
             setType(0)
             setIsVisible(false)
         }, 2000)
@@ -65,7 +65,7 @@ function AccountPage() {
         accountRef.current.style.setProperty('animation', 'disappearOpacity 0.5s ease-in-out forwards')
         setDisable(true)
         setTimeout(() => {
-            navigate('/', { replace: true })
+            navigate('/account', { replace: true })
         }, 700)
     }
 
@@ -78,7 +78,7 @@ function AccountPage() {
             if (window.scrollY === 0) {
     
                 setTimeout(() => {
-                    navigate('/sign-up')
+                    navigate('sign-up')
                     setType(2)
                     setDisable(false)
             
@@ -103,7 +103,7 @@ function AccountPage() {
                 setDisable(true)
         
                 setTimeout(() => {
-                    navigate('/', { replace: true })
+                    navigate('/account', { replace: true })
                     setType(0)
                     setIsVisible(false)
                 }, 2000)
@@ -132,8 +132,8 @@ function AccountPage() {
                     <span className='logo-nomusic'>NO MUSIC</span>
                     <div className='account-page-right-header'>
                         <span>Thông tin</span>
-                        <span onClick={() => { navigate('/login'); setType(1); setDisable(false) }}>Đăng nhập</span>
-                        <span onClick={() => { navigate('/sign-up'); setType(1); setDisable(false) }}>Đăng ký</span>
+                        <span onClick={() => { navigate('login'); setType(1); setDisable(false) }}>Đăng nhập</span>
+                        <span onClick={() => { navigate('sign-up'); setType(1); setDisable(false) }}>Đăng ký</span>
                     </div>
                 </div>
 
@@ -172,7 +172,7 @@ function AccountPage() {
                     <IoMdArrowDropdown/>
                 </div>
             </div>
-            {((location.pathname === '/sign-up' || location.pathname === '/login') && type === 2) && <div className='account-page-item'>
+            {((location.pathname === '/account/sign-up' || location.pathname === '/account/login') && type === 2) && <div className='account-page-item'>
                 <div className='account-page-bottom-content'>
                     <div className='account-page-bottom-left-content'>
                         <div className='bottom-left-img-n-text'>
@@ -188,17 +188,17 @@ function AccountPage() {
                     </div>
                     <div className='account-page-bottom-right-content'>
                         { isVisible && <div className='register-container-right' ref={accountRightRef2}>
-                            { location.pathname === '/sign-up' && <Register disable={disable} setType={setType} type={type}/> }
-                            { location.pathname === '/login' && <Login disable={disable} setType={setType} type={type}/> }
+                            { location.pathname === '/account/sign-up' && <Register disable={disable} setType={setType} type={type}/> }
+                            { location.pathname === '/account/login' && <Login disable={disable} setType={setType} type={type}/> }
                         </div> }
                     </div>
                 </div>
             </div> }
 
-            { ((location.pathname === '/login' || location.pathname === '/sign-up') && type === 1) && <div className='login-container' ref={accountRef}>
+            { ((location.pathname === '/account/login' || location.pathname === '/account/sign-up') && type === 1) && <div className='login-container' ref={accountRef}>
                 <div className='fake-container' onClick={handleDisableLogin}/>
-                { location.pathname === '/login' && <Login disable={disable} setType={setType} type={type}/> }
-                { location.pathname === '/sign-up' && <Register disable={disable} setType={setType} type={type}/> }
+                { location.pathname === '/account/login' && <Login disable={disable} setType={setType} type={type}/> }
+                { location.pathname === '/account/sign-up' && <Register disable={disable} setType={setType} type={type}/> }
             </div> }
         </div>
     )

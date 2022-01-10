@@ -32,25 +32,25 @@ function Navigation({ setIsWiden }) {
         { isVisible && <div className='navigation-container' ref={navRef}>
             <ul>
                 <li className={ location.pathname === '/home' ? 'active' : ''}>
-                    <Link to='/home'>
+                    <Link to='home'>
                         <IoHomeOutline/>
                         <span>Trang chủ</span>
                     </Link>
                 </li>
                 <li className={ location.pathname === '/search' ? 'active' : ''}>
-                    <Link to='/search'>
+                    <Link to='search'>
                         <BiSearch/>
                         <span>Tìm kiếm</span>
                     </Link>
                 </li>
                 <li className={ location.pathname === '/discovery' ? 'active' : ''}>
-                    <Link to='/discovery'>
+                    <Link to='discovery'>
                         <GiWorld/>
                         <span>Khám phá</span>
                     </Link>
                 </li>
                 <li className={ location.pathname === '/chart' ? 'active' : ''}>
-                    <Link to='/chart'>
+                    <Link to='chart'>
                         <HiOutlineChevronDoubleUp/>
                         <span>Bảng xếp hạng</span>
                     </Link>

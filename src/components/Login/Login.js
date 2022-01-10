@@ -18,7 +18,7 @@ function Login({ disable, setType, type }) {
     const handleSignUp = () => {
         loginRef.current.style.setProperty('animation', 'disappearSlideOpacity 0.5s ease-in-out forwards')
         setTimeout(() => {
-            navigate('/sign-up')
+            navigate('sign-up')
             if(type === 1)
                 setType(1)
             if(type === 2)
@@ -29,7 +29,7 @@ function Login({ disable, setType, type }) {
     const handleGoToHome = () => {
         loginRef.current.style.setProperty('animation', 'disappearSlideOpacity 0.5s ease-in-out forwards')
         setTimeout(() => {
-            navigate('/home')
+            navigate('/')
             setType(0)
         }, 700)
     }

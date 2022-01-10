@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-distracting-elements */
 import React, { useEffect, useRef } from 'react'
 import ImageSong from 'components/Image/ImageSong'
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from 'react-icons/cg'
@@ -73,8 +74,14 @@ function SongPlaying(props) {
             {screenType === 'M' && <AiFillHeart/>}
         </div>
         <div className='info-playing-song'>
-            <span>{currentSong.name}</span>
-            <span>{currentSong.singer}</span>
+            { (screenType === 'S' && isPlaying) && <marquee dỉrection='left'>
+                <span>{currentSong.name}</span><br/>
+                <span>{currentSong.singer}</span>
+            </marquee>}
+            { (screenType === 'M' || !isPlaying) && <>
+                <span>{currentSong.name}</span>
+                <span>{currentSong.singer}</span>
+            </>}
         </div>
         {screenType === 'S' && <AiFillHeart className='heart-icon'/>}
         <div className='audio-controllers'>

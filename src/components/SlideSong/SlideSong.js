@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React/*, { useEffect, useRef, useState }*/ from 'react'
 import { connect } from 'react-redux'
 import { IoPause, IoPlay } from 'react-icons/io5'
 import { playThisSong, playWithScreen, togglePlay } from 'actions/audioAction'
@@ -9,27 +9,27 @@ import './SlideSong.scss'
 function SlideSong(props) {
 
     const {
-        hotsong, index, currentSong,
+        hotsong, /*index, */currentSong,
         isPlaying, screenType,
         togglePlay, playWithScreen, playThisSong
     } = props
 
-    const [slide, setSlide] = useState([1,2,3,4])
+    // const [slide, setSlide] = useState([1,2,3,4])
 
-    const timer = useRef(null)
+    // const timer = useRef(null)
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        timer.current = setInterval(() => {
-            const clone = [...slide]
-            const lastEle = clone.pop()
-            clone.unshift(lastEle)
-            setSlide(clone)
-        }, 5000)
+    //     timer.current = setInterval(() => {
+    //         const clone = [...slide]
+    //         const lastEle = clone.pop()
+    //         clone.unshift(lastEle)
+    //         setSlide(clone)
+    //     }, 5000)
 
-        return () => clearInterval(timer.current)
+    //     return () => clearInterval(timer.current)
 
-    }, [slide])
+    // }, [slide])
 
     const handlePlayThisSong = (hotsong) => {
         togglePlay(true)
@@ -40,7 +40,7 @@ function SlideSong(props) {
 
     return (
 
-        <div className={`slide-song-container slide-song-container-${slide[index]}`}>
+        <div className='slide-song-container'>
             <div className='slide-song-image'>
                 <ImageSong source={hotsong.image} alert={hotsong.name}/>
                 <div className='middle-slide-song'>

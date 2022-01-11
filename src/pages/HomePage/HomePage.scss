@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    height: 234.8px;
-    position: relative;
+    // height: 234.8px;
+    // position: relative;
 }
 
 hr {
@@ -22,15 +22,8 @@ hr {
     justify-content: space-between;
 
     span {
-        &:first-child {
-            color: $main-color;
-            font-family: UTM_AVO_BOLD_ITALIC;
-        }
-        &:last-child {
-            color: $white;
-            font-family: UTM_AVO_ITALIC;
-            cursor: pointer;
-        }
+        color: $main-color;
+        font-family: UTM_AVO_BOLD_ITALIC;
     }
 }
 
@@ -38,6 +31,32 @@ hr {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    position: relative;
+
+    .recent-title-all {
+        position: absolute;
+        color: $white;
+        font-family: UTM_AVO_ITALIC;
+        top: -42px;
+        right: 10px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    &::after {
+        content: '';
+        width: 100px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+        top: -20px;
+    }
+
+    &:hover .recent-title-all {
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+    }
 
     .recently-song-container-item {
         display: flex;

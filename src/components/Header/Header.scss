@@ -56,6 +56,22 @@
             position: relative;
             cursor: pointer;
 
+            .header-icon-item-1 {
+                width: 26px;
+                height: 26px;
+            }
+
+            label {
+                width: inherit;
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            input { display: none; }
+
             svg {
                 font-size: 30px;
                 color: $main-color;
@@ -86,6 +102,34 @@
                     padding-bottom: 2px;
                 }
             }
+
+            .drop-down-user, .drop-down-notification {
+                right: 0;
+                width: 250px;
+                padding: 10px 20px;
+                border-radius: 12px;
+    
+                span {
+                    cursor: pointer;
+                    &:not(:last-child) { margin-bottom: 10px; }
+                    &:hover { color: $main-color; }
+                }
+            }
+
+            .drop-down-notification {
+                left: 0;
+
+                #none-notify {
+                    width: unset;
+                    height: unset;
+                    position: unset;
+                    background-color: unset;
+                    font-size: 0.8rem;
+                    display: unset;
+                    font-family: UTM_AVO_BOLD_ITALIC;
+                    &:hover { color: unset; }
+                }
+            }
         }
 
 
@@ -94,6 +138,24 @@
             height: 50px;
             border-radius: 50%;
             background-color: $white;
+            overflow: hidden;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .header-drop-down {
+            position: absolute;
+            background-color: $main-color-2;
+            display: flex;
+            flex-direction: column;
+            color: $white;
+            font-family: UTM_AVO_BOLD_ITALIC;
+            font-size: 0.9rem;
+            top: 50px;
         }
     }
 

@@ -18,7 +18,7 @@ function HomePage(props) {
         {_id: 1, name: 'Trốn tìm', singer: 'Đen Vâu ft. MTV Band', image: 'tron-tim.jpg', audio: 'audio/tron-tim.mp3'},
         {_id: 2, name: 'Tìm hành tinh khác', singer: 'Vũ Cát Tường', image: 'tim-hanh-tinh-khac.jpg', audio: 'audio/tim-hanh-tinh-khac.mp3'},
         {_id: 3, name: 'Bước qua nhau', singer: 'Vũ', image: 'buoc-qua-nhau.jpg', audio: 'audio/buoc-qua-nhau.mp3'},
-        {_id: 4, name: 'Mang tiền về cho mẹ', singer: 'Đen Vâu ft. Nguyên Thảo', image: 'mang-tien-ve-cho-me.jpg', audio: 'audio/mang-tien-ve-cho-me.mp3'},
+        // {_id: 4, name: 'Mang tiền về cho mẹ', singer: 'Đen Vâu ft. Nguyên Thảo', image: 'mang-tien-ve-cho-me.jpg', audio: 'audio/mang-tien-ve-cho-me.mp3'},
     ]
 
     const listRecentlySong = [
@@ -40,13 +40,12 @@ function HomePage(props) {
         <>
             <div className='hot-song-container'>
                 { listHotSong.map((hotsong, index) => (
-                    <SlideSong key={hotsong._id} hotsong={hotsong} index={index}/>
+                    <SlideSong key={hotsong._id} hotsong={hotsong} /*index={index}*//>
                 ))}
             </div>
             <hr/>
             <div className='home-page-title'>
                 <span>Gần đây</span>
-                <span>Tất cả...</span>
             </div>
             <div className='recently-song-container'>
                 {listRecentlySong.map((recentlySong, index) => (<div className='recently-song-container-item' key={index}>
@@ -62,6 +61,7 @@ function HomePage(props) {
                     <span className='recently-song-name'>{recentlySong.name}</span>
                     <span className='recently-song-singer'>{recentlySong.singer}</span>
                 </div>))}
+                <span className='recent-title-all'>Tất cả...</span>
             </div> 
         </>
     )

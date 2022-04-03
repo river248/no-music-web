@@ -7,7 +7,7 @@ function PublicRoute() {
     const token = getToken()
     const location = useLocation()
 
-    return !token ? <Outlet/> : <Navigate to={'/'} replace state={{ from: location }}/>
+    return !token ? <Outlet/> : <Navigate to={'/home'} replace state={{ from: location }}/>
 }
 
 export default PublicRoute

@@ -1,11 +1,11 @@
 import React from 'react'
-import ImageSong from 'components/Image/ImageSong'
+import { connect } from 'react-redux'
 import { IoPause, IoPlay } from 'react-icons/io5'
 
 import './HomePage.scss'
 import { playThisSong, playWithScreen, togglePlay } from 'actions/audioAction'
-import { connect } from 'react-redux'
 import SlideSong from 'components/SlideSong/SlideSong'
+import ImageSong from 'components/Image/ImageSong'
 
 function HomePage(props) {
 

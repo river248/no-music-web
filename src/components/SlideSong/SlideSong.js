@@ -1,10 +1,10 @@
 import React/*, { useEffect, useRef, useState }*/ from 'react'
 import { connect } from 'react-redux'
 import { IoPause, IoPlay } from 'react-icons/io5'
-import { playThisSong, playWithScreen, togglePlay } from 'actions/audioAction'
-import ImageSong from 'components/Image/ImageSong'
 
 import './SlideSong.scss'
+import { playThisSong, playWithScreen, togglePlay } from 'actions/audioAction'
+import ImageSong from 'components/Image/ImageSong'
 
 function SlideSong(props) {
 

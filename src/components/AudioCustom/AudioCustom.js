@@ -2,11 +2,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { getStorage, ref, getDownloadURL } from 'firebase/storage'
+import { CgMiniPlayer } from 'react-icons/cg'
+import { connect } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import './AudioCustom.scss'
 import { loadingSong, playWithScreen, togglePlay } from 'actions/audioAction'
-import { connect } from 'react-redux'
 import SongPlaying from 'components/SongPlaying/SongPlaying'
+
 
 function AudioCustom(props) {
 
@@ -19,6 +22,7 @@ function AudioCustom(props) {
     const barRef = useRef(null)
     const audioRef = useRef(null)
     const progressRef = useRef(null)
+    const navigate = useNavigate()
 
     const [audio, setAudio] = useState('')
     const [seekable, setSeekable] = useState(false)
@@ -127,7 +131,7 @@ function AudioCustom(props) {
         <>
         { screenType === 'M' && <div className='play-box-container' ref={boxRef}>
             <IoMdArrowDropdown onClick={handleHideBox}/>
-            <div className='full-screen-btn'/>
+            <div className='full-screen-btn' onClick={() => navigate('detail-song')}/>
             <SongPlaying
                 progressRef = {progressRef}
                 setSeekable = {setSeekable}
@@ -137,7 +141,7 @@ function AudioCustom(props) {
             />
         </div> }
         { screenType === 'S' && <div className='play-bar-container' ref={barRef} >
-            <div className='fake-play-bar' onClick={handleHideBar}/>
+            <div className='fake-play-bar' onClick={() => navigate('detail-song')}/>
             <SongPlaying
                 progressRef = {progressRef}
                 setSeekable = {setSeekable}
@@ -145,6 +149,9 @@ function AudioCustom(props) {
                 currentTime = {currentTime}
                 duration = {duration}
             />
+            <div id='play-box-screen' onClick={handleHideBar}>
+                <CgMiniPlayer/>
+            </div>
         </div> }
         <audio
             ref={audioRef}

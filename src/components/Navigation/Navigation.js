@@ -31,7 +31,7 @@ function Navigation({ setIsWiden }) {
         <>
         { isVisible && <div className='navigation-container' ref={navRef}>
             <ul>
-                <li className={ location.pathname === '/home' ? 'active' : ''}>
+                <li className={ location.pathname === '/home' || location.pathname === '/detail-song' ? 'active' : ''}>
                     <Link to='home'>
                         <IoHomeOutline/>
                         <span>Trang chủ</span>

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-distracting-elements */
 import React, { useEffect, useRef } from 'react'
-import ImageSong from 'components/Image/ImageSong'
+import { connect } from 'react-redux'
+import { Spinner } from 'react-bootstrap'
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from 'react-icons/cg'
 import { FaPause, FaPlay } from 'react-icons/fa'
 import { BiListUl } from 'react-icons/bi'
@@ -8,9 +9,9 @@ import { RiRepeat2Fill, RiRepeatOneFill } from 'react-icons/ri'
 import { MdVolumeUp, MdVolumeOff, MdVolumeDown, MdVolumeMute } from 'react-icons/md'
 import { IoShuffle } from 'react-icons/io5'
 import { AiFillHeart } from 'react-icons/ai'
+
+import ImageSong from 'components/Image/ImageSong'
 import { changeVolume, loopingSong, toggleMuted, togglePlay } from 'actions/audioAction'
-import { connect } from 'react-redux'
-import { Spinner } from 'react-bootstrap'
 import { calculateTime } from 'utils/formatTimer'
 
 function SongPlaying(props) {

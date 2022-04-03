@@ -1,0 +1,164 @@
+@import '_setting.scss';
+
+.detail-song-page-container {
+    height: 500px;
+    border-radius: 25px;
+    background-color: $main-color-2;
+    display: flex;
+    overflow: hidden;
+
+    .left-detail-song-page {
+        width: 30%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .right-detail-song-page {
+        width: 70%;
+        padding: 30px;
+
+        .header-detail-song-page {
+            padding: 0 20px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            button {
+                height: 38px;
+                width: 100px;
+                border-radius: 35px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                font-family: UTM_AVO_BOLD;
+                background-color: $main-color;
+                color: $white;
+                padding-bottom: 2px;
+                font-size: 1rem;
+            }
+            
+            .detail-song-btn {
+                height: inherit;
+                display: flex;
+                align-items: center;
+
+                button {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 0;
+                    border: none;
+                    outline: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: unset;
+                    
+                    svg {
+                        font-size: 30px;
+                    }
+
+                    &:not(:last-child) { margin-right: 10px;}
+
+                    &:hover {
+                        color: $main-color;
+                    }
+                }
+            }
+
+        }
+
+        .detail-song-content {
+            display: flex;
+            flex-direction: column;
+
+            #detail-song-title, #detail-song-singer {
+                color: $white;
+                font-family: UTM_AVO_BOLD;
+                font-size: 1.9rem;
+            }
+
+            hr {
+                width: 100%;
+                height: 2px;
+                margin: 0;
+            }
+
+            #detail-song-singer {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .detail-song-info {
+                display: flex;
+                flex-direction: column;
+                font-family: UTM_AVO_ITALIC;
+                color: $white;
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            #singer-channel-container {
+                background-color: lighten($main-color-2, $amount: 20);
+                height: 44px;
+                border-radius: 22px;
+                margin-bottom: 20px;
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                .image-singer-container {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img {
+                        height: 100%;
+                        position: relative;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                span {
+                    margin-left: 20px;
+                    font-family: UTM_AVO;
+                    color: $white;
+                    font-size: 0.9rem;
+                }
+
+                button {
+                    position: absolute;
+                    right: 0;
+                    width: 110px;
+                    height: inherit;
+                    border-radius: 22px;
+                    border: none;
+                    outline: none;
+                    background-color: $white;
+                    font-family: UTM_AVO_BOLD;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+
+                }
+            }
+        }
+
+        .detail-song-comment {
+
+            span {
+                font-family: UTM_AVO_BOLD;
+                color: $white;
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './Login.scss'
 import GoogleSign from 'components/Auth/GoogleSign'
 import FacebookSign from 'components/Auth/FacebookSign'
-import { useNavigate } from 'react-router-dom'
 
 function Login({ disable, setType, type }) {
 
@@ -29,7 +29,7 @@ function Login({ disable, setType, type }) {
     const handleGoToHome = () => {
         loginRef.current.style.setProperty('animation', 'disappearSlideOpacity 0.5s ease-in-out forwards')
         setTimeout(() => {
-            navigate('/')
+            navigate('/home')
             setType(0)
         }, 700)
     }

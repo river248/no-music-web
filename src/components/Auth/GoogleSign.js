@@ -1,7 +1,8 @@
 import React from 'react'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
-import firebaseApp from 'config/firebaseConfig'
 import { FcGoogle } from 'react-icons/fc'
+
+import firebaseApp from 'config/firebaseConfig'
 
 firebaseApp()
 

@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FaRegPaperPlane } from 'react-icons/fa'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { IoMdArrowDropdownCircle } from 'react-icons/io'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import './Header.scss'
-import { useLocation, useNavigate } from 'react-router-dom'
 import { getToken } from 'components/Auth/Auth'
 import ImageSong from 'components/Image/ImageSong'
 
